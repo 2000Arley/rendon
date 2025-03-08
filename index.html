@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Oficial de Santa Elena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo general */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://img.freepik.com/fotos-premium/paisaje-paisaje-campo-verde-solo-arbol_163782-5672.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.0); /* Fondo más transparente */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+            max-width: 400px; /* Ancho reducido */
+            width: 80%; /* Adaptativo */
+        }
+
+        h1 {
+            font-size: 32px; /* Tamaño reducido */
+            margin-bottom: 15px;
+            color: #f4f4f4; /* Blanco brillante */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra en el texto */
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px; /* Tamaño reducido */
+            margin-bottom: 20px;
+            color: #e0e0e0; /* Gris claro */
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        a button {
+            font-size: 18px;
+            background: linear-gradient(90deg, #56ab2f, #a8e063); /* Degradado verde */
+            color: #ffffff;
+            padding: 12px 40px; /* Botón más pequeño */
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra del botón */
+        }
+
+        a button:hover {
+            transform: scale(1.1); /* Efecto de zoom */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+        }
+
+        a button:active {
+            transform: scale(0.98); /* Botón ligeramente hundido */
+        }
+
+        #helpLink {
+            display: block;
+            text-align: center;
+            margin-top: -298px; /* Lo mueve hacia arriba */
+            margin-left: 698px; /* Mueve hacia la derecha */
+            margin-right: auto; /* Mueve hacia la derecha */
+            color: #f4f4f4; /* Color del enlace */
+            font-size: 16px;
+            text-decoration: underline;
+           
+            position: absolute; /* Para posicionar el elemento con top, right, bottom, left */
+            opacity: 0.3; /* Nivel de transparencia */
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Bienvenidos a Santa Helena </h1>
+        <a href="/historial" id="helpLink">Historial de Registro</a>
+        <a href="historial.html" id="helpLink">Historial de Registro</a>
+        <a href="/historial" id="helpLink">Historial de Registro</a>
+
+
+
+       
+
+
+
+
+        <p>Sumérgete en la belleza natural y los paisajes del campo que solo Santa Elena puede ofrecer.</p>
+        <a href="/buscador">
+            <button>Ingresar</button>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('helpLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+            // Nombre del archivo que se quiere leer
+            const registroPath = 'registro_emisiones.txt';
+            
+            // Lógica para leer el contenido del archivo
+            fetch(registroPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el archivo');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Imprimir el contenido del archivo en consola o mostrar en el DOM
+                    console.log(data);
+                    // O puedes mostrarlo en un div si lo deseas
+                    // document.getElementById('contenidoArchivo').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Hubo un problema con la petición fetch:', error);
+                });
+        });
+    </script>
+</body>
+</html>

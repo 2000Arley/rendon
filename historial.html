@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Registro</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #56ab2f;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Estilo para la primera fila del encabezado */
+        thead tr:first-child {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            color: #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e6ffe6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Historial de Registro</h1>
+    <table>
+        <thead>
+            {% if registros %}
+            
+            {% endif %}
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro[0] }}</td>
+                <td>{{ registro[1] }}</td>
+                <td>{{ registro[2] }}</td>
+                <td>{{ registro[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
